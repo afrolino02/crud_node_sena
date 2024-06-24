@@ -1,43 +1,46 @@
-import React from "react";
-import { useState } from "react";
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const [nombre, setNombre] = useState("");
+import React, { useState } from "react";
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const [edad, setEdad] = useState(0);
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const [pais, setPais] = useState("");
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const [cargo, setCargo] = useState("");
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const [anios, setAnios] = useState(0);
+function Formulario() {
+  const [nombre, setNombre] = useState("");
+  const [edad, setEdad] = useState(0);
+  const [pais, setPais] = useState("");
+  const [cargo, setCargo] = useState("");
+  const [anios, setAnios] = useState(0);
 
+  function mostrarPersona() {
+    console.log(nombre);
+  }
 
+  return (
+    <div className='datos'>
+      <label>
+        Nombre
+        <input type='text' onChange={(e) => setNombre(e.target.value)} />
+      </label>
 
-function mostrarPersona(){
-        console.log(nombre)
+      <label>
+        Edad
+        <input type='number' onChange={(e) => setEdad(e.target.value)} />
+      </label>
+
+      <label>
+        Pais
+        <input type='text' onChange={(e) => setPais(e.target.value)} />
+      </label>
+
+      <label>
+        Cargo
+        <input type='text' onChange={(e) => setCargo(e.target.value)} />
+      </label>
+
+      <label>
+        Años
+        <input type='number' onChange={(e) => setAnios(e.target.value)} />
+      </label>
+
+      <button onClick={mostrarPersona}>Registrar</button>
+    </div>
+  );
 }
 
-export function Formulario(){
-    return(
-        <div className='datos'>
-                
-        <label htmlFor=""> Nombre <input onChange={(e)=> { setNombre(e.target.value)
-
-        }} type='text'/></label>
-        <label htmlFor=""> Edad <input onChange={(e)=> { setEdad(e.target.value)
-
-        }} type='number'/></label>
-        <label htmlFor=""> Pais <input onChange={(e)=> { setPais(e.target.value)
-
-        }} type='text'/></label>
-        <label htmlFor=""> Cargo <input onChange={(e)=> { setCargo(e.target.value)
-
-        }} type='text'/></label>
-        <label htmlFor=""  > Años <input onChange={(e)=> { setAnios(e.target.value)
-
-        }} type='number'/></label>
-        <button onClick={mostrarPersona} >Registrar</button>
-      </div>
-    );
-}
+export default Formulario;
